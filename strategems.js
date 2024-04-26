@@ -1,11 +1,3 @@
-export const strategems = {
-    "Eagle": Eagle,
-    "Orbital": Orbital,
-    "Sentries": Sentries,
-    "Weapons": Weapons,
-    "Backpacks": Backpacks,
-};
-
 export const Eagle = [
     "Strafing Run",
     "Airstrike",
