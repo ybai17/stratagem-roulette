@@ -1,25 +1,25 @@
 export const Eagle = [
-    "Strafing Run",
-    "Airstrike",
-    "Cluster Bomb", 
-    "Napalm Strike",
-    "Smoke Strike",
-    "110mm Rocket Pods",
-    "500kg Bomb",
+    "Eagle Strafing Run",
+    "Eagle Airstrike",
+    "Eagle Cluster Bomb", 
+    "Eagle Napalm Strike",
+    "Eagle Smoke Strike",
+    "Eagle 110mm Rocket Pods",
+    "Eagle 500kg Bomb",
 ];
 
 export const Orbital = [
-    "Precision Strike",
-    "Airburst Strike",
-    "120mm HE Barrage",
-    "380mm HE Barrage",
-    "Walking Barrage",
-    "Laser",
-    "Railcannon Strike",
-    "Gatling Barrage",
-    "Gas Strike",
-    "EMS Strike",
-    "Smoke Strike",
+    "Orbital Precision Strike",
+    "Orbital Airburst Strike",
+    "Orbital 120mm HE Barrage",
+    "Orbital 380mm HE Barrage",
+    "Orbital Walking Barrage",
+    "Orbital Laser",
+    "Orbital Railcannon Strike",
+    "Orbital Gatling Barrage",
+    "Orbital Gas Strike",
+    "Orbital EMS Strike",
+    "Orbital Smoke Strike",
 ];
 
 export const Sentries = [
@@ -34,7 +34,7 @@ export const Sentries = [
     "HMG Emplacement",
     "Autocannon Sentry",
     "Rocket Sentry",
-]
+];
 
 export const Weapons = [
     "Autocannon",
@@ -62,12 +62,17 @@ export const Backpacks = [
     "Supply Pack",
     "Shield Generator Pack",
     "Ballistic Shield Backpack",
-]
+];
+
+export const debug_Weapons = [
+    "Autocannon",
+];
 
 export const Strategem_Categories = {
-    "Eagle": Eagle,
-    "Orbital": Orbital,
-    "Sentries": Sentries,
-    "Weapons": Weapons,
-    "Backpacks": Backpacks,
-}
+    0: Eagle,
+    1: Orbital,
+    2: Sentries,
+    3: Weapons,
+    //3: debug_Weapons,
+    4: Backpacks,
+};
