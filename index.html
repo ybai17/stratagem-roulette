@@ -2,17 +2,38 @@
 <head>
     <link rel="icon" href="smile.jpg">
 <title>Blah</title>
+<script src="index.js">
+    console.log("____SCRIPT BLOCK INSIDE HEAD___");
+    load();
+    console.log("____CLOSE HEAD SCRIPT BLOCK___");
+</script>
+<script type="module">
+    import load from './index-module.js';
+
+    console.log("____Head MODULE script block____");
+    load();
+    console.log("____CLOSE head MODULE script block____");
+</script>
 </head>
 <body>
-<h1>Hello world</h1>
-<script type="module">
-    //import * as strategems from "./strategems";
-    import * as strategems from "./strategems.js";
-    import * as roulette from "./roulette-logic.js";
-
-    console.log(strategems);
-
+    <h1>Hello world</h1>
+    <!--
+        <script src="index.js">
+            load();
+        </script>
+    -->
     
-</script>
+    <script>
+        console.log("-------First script block--------");
+        load();
+        console.log("-------CLOSE First script block--------");
+    </script>
+    <script type="module">
+        import load from './index-module.js';
+
+        console.log("-----Second cript block (MODULE)--------");
+        load();
+        console.log("-----CLOSE Second cript block (MODULE)--------");
+    </script>
 </body>
 </html>

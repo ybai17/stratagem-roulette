@@ -63,3 +63,11 @@ export const Backpacks = [
     "Shield Generator Pack",
     "Ballistic Shield Backpack",
 ]
+
+export const Strategem_Categories = {
+    "Eagle": Eagle,
+    "Orbital": Orbital,
+    "Sentries": Sentries,
+    "Weapons": Weapons,
+    "Backpacks": Backpacks,
+}
