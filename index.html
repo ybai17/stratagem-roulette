@@ -17,6 +17,8 @@
 </head>
 <body>
     <h1>Hello world</h1>
+    <div id="players">
+    </div>
     <!--
         <script src="index.js">
             load();
@@ -32,8 +34,18 @@
         import load from "./index-module.js";
         import * as roulette from "./roulette-logic.js";
 
-        console.log("PICKED: \n");
-        console.log(roulette.pickStrategemSet());
+        //console.log("PICKED: \n");
+        //console.log(roulette.pickStrategemSet());
+
+        let players_div = document.getElementById("players");
+
+        for (let i = 0; i < 4; i++) {
+            let player_node = document.createElement("p");
+            player_node.id = "player" + i;
+            player_node.innerHTML = roulette.pickStrategemSet();
+            
+            players_div.appendChild(player_node);
+        }
 
         //console.log("-----Second cript block (MODULE)--------");
         //load();
