@@ -3,7 +3,7 @@
     <link rel="icon" href="smile.jpg">
 <title>Blah</title>
 <link rel="stylesheet" href="main.css">
-<script src="index.js">
+<script>
     //console.log("____SCRIPT BLOCK INSIDE HEAD___");
     //load();
     //console.log("____CLOSE HEAD SCRIPT BLOCK___");
@@ -18,6 +18,9 @@
 </head>
 <body>
     <h1>Hello world</h1>
+
+    <button id="reroll">Reroll</button>
+
     <div id="players">
     </div>
     <!--
@@ -25,8 +28,6 @@
             load();
         </script>
     -->
-
-    <img src="./smile.jpg">
     
     <script>
         //console.log("-------First script block--------");
@@ -34,15 +35,14 @@
         //console.log("-------CLOSE First script block--------");
     </script>
     <script type="module">
-        import load from "./index-module.js";
-        import * as roulette from "./roulette-logic.js";
-        import * as svgs from "./strategem-svg-maps.js";
-
+        import * as index from "./index.js";
         //console.log("PICKED: \n");
         //console.log(roulette.pickStrategemSet());
 
+        index.index_load();
+
         console.log("-----Second cript block (MODULE)--------");
-        load();
+        //load();
         console.log("-----CLOSE Second cript block (MODULE)--------");
     </script>
 </body>

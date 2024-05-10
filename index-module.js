@@ -1,8 +1,11 @@
 import * as roulette from './roulette-logic.js';
 import { SVG_All } from './strategem-svg-maps.js';
 
-export default function load() {
+//default doesn't work
+export function load() {
     console.log("index-module.js LOAD");
+
+    document.getElementById("players").replaceChildren();
 
     let players_div = document.getElementById("players");
 
