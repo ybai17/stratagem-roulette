@@ -21,6 +21,7 @@ export function pickStrategemSet() {
     let output = [];
 
     let has_backpack_type = false;
+    let has_weapon_type = false;
 
     let strat_count = 0;
 
@@ -28,7 +29,7 @@ export function pickStrategemSet() {
 
         let strat_type_key = getRandomIntInclusive(0, 4);
 
-        //console.log("Chose strat key: " + strat_type_key);
+        console.log("Chose strat key: " + strat_type_key);
 
         let random_strat = pickRandomFromCategory(strategems.Strategem_Categories[strat_type_key]);
 
@@ -38,8 +39,14 @@ export function pickStrategemSet() {
         }
 
         //also forbid having 2 backpack-type strats
-        if (has_backpack_type && (strat_type_key == 4 || random_strat === "Autocannon")) {
+        if (has_backpack_type && (strat_type_key == 4 || strategems.weapons_with_backpacks.includes(random_strat))) {
             console.log("Already have backpack or autocannon, retrying");
+            continue;
+        }
+
+        //forbid having 2 weapon-type strats
+        if (has_weapon_type && strat_type_key == 3) {
+            console.log("Already has weapon, retrying");
             continue;
         }
 
@@ -48,9 +55,13 @@ export function pickStrategemSet() {
         if (strat_type_key == 4) {
             has_backpack_type = true;
         }
+        
+        if (strat_type_key == 3) {
+            has_weapon_type = true;
+        }
 
         //also need to handle special case of the autocannon
-        if (random_strat === "Autocannon") {
+        if (strategems.weapons_with_backpacks.includes(random_strat)) {
             has_backpack_type = true;
         }
 

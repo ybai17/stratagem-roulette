@@ -15,6 +15,8 @@ export function load_strats() {
         for (let i = 0; i < total_player_number; i++) {
             let strategem_list = roulette.pickStrategemSet();
 
+            console.log("-----------------------------------------------------------------");
+
             create_player_strat_table(players_div, i, strategem_list);
         }
 }

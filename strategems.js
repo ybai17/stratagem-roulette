@@ -56,8 +56,6 @@ export const Weapons = [
 ];
 
 export const Backpacks = [
-    "Autocannon",
-    "Airburst Rocket Launcher",
     "\"Guard Dog\" Rover",
     "\"Guard Dog\"",
     "Jump Pack",
@@ -83,5 +81,5 @@ export const weapons_with_backpacks = [
     "Autocannon",
     "Airburst Rocket Launcher",
     "Spear",
-    
+    "Recoilless Rifle",
 ];
