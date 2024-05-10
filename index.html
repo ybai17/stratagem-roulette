@@ -2,6 +2,7 @@
 <head>
     <link rel="icon" href="smile.jpg">
 <title>Blah</title>
+<link rel="stylesheet" href="main.css">
 <script src="index.js">
     //console.log("____SCRIPT BLOCK INSIDE HEAD___");
     //load();
@@ -33,23 +34,14 @@
     <script type="module">
         import load from "./index-module.js";
         import * as roulette from "./roulette-logic.js";
+        import * as svgs from "./strategem-svg-maps.js";
 
         //console.log("PICKED: \n");
         //console.log(roulette.pickStrategemSet());
 
-        let players_div = document.getElementById("players");
-
-        for (let i = 0; i < 4; i++) {
-            let player_node = document.createElement("p");
-            player_node.id = "player" + i;
-            player_node.innerHTML = roulette.pickStrategemSet();
-            
-            players_div.appendChild(player_node);
-        }
-
-        //console.log("-----Second cript block (MODULE)--------");
-        //load();
-        //console.log("-----CLOSE Second cript block (MODULE)--------");
+        console.log("-----Second cript block (MODULE)--------");
+        load();
+        console.log("-----CLOSE Second cript block (MODULE)--------");
     </script>
 </body>
 </html>

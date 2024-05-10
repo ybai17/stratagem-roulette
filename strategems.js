@@ -2,7 +2,7 @@ export const Eagle = [
     "Eagle Strafing Run",
     "Eagle Airstrike",
     "Eagle Cluster Bomb", 
-    "Eagle Napalm Strike",
+    "Eagle Napalm Airstrike",
     "Eagle Smoke Strike",
     "Eagle 110mm Rocket Pods",
     "Eagle 500kg Bomb",
@@ -38,6 +38,7 @@ export const Sentries = [
 
 export const Weapons = [
     "Autocannon",
+    "Airburst Rocket Launcher",
     "Expendable Anti-Tank",
     "Flamethrower",
     "Laser Cannon",
@@ -56,6 +57,7 @@ export const Weapons = [
 
 export const Backpacks = [
     "Autocannon",
+    "Airburst Rocket Launcher",
     "\"Guard Dog\" Rover",
     "\"Guard Dog\"",
     "Jump Pack",
@@ -76,3 +78,10 @@ export const Strategem_Categories = {
     //3: debug_Weapons,
     4: Backpacks,
 };
+
+export const weapons_with_backpacks = [
+    "Autocannon",
+    "Airburst Rocket Launcher",
+    "Spear",
+    
+];

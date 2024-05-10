@@ -1,7 +1,7 @@
 import * as strategems from "./strategems.js";
 
-console.log(strategems.Backpacks)
-console.log(strategems.Eagle)
+//console.log(strategems.Backpacks)
+//console.log(strategems.Eagle)
 
 function pickRandomFromCategory(list) {
 
