@@ -1,4 +1,5 @@
 //maps each strategem to its corresponding SVG image file location
+//file names are case sensitive in GitHub pages
 
 export const SVG_All = {
     "Eagle Strafing Run" : "./icons/Hangar/Eagle Strafing Run.svg",
@@ -6,12 +7,12 @@ export const SVG_All = {
     "Eagle Cluster Bomb" : "./icons/Hangar/Eagle Cluster Bomb.svg", 
     "Eagle Napalm Airstrike" : "./icons/Hangar/Eagle Napalm Airstrike.svg",
     "Eagle Smoke Strike" : "./icons/Hangar/Eagle Smoke Strike.svg",
-    "Eagle 110mm Rocket Pods" : "./icons/Hangar/Eagle Smoke Strike.svg",
-    "Eagle 500kg Bomb" : "./icons/Hangar/Eagle 500kg Bomb.svg",
+    "Eagle 110mm Rocket Pods" : "./icons/Hangar/Eagle 110MM Rocket Pods.svg",
+    "Eagle 500kg Bomb" : "./icons/Hangar/Eagle 500KG Bomb.svg",
     "Orbital Precision Strike" : "./icons/Bridge/Orbital Precision Strike.svg",
     "Orbital Airburst Strike" : "./icons/Orbital Cannons/Orbital Airburst Strike.svg",
-    "Orbital 120mm HE Barrage" : "./icons/Orbital Cannons/Orbital 120mm HE Barrage.svg",
-    "Orbital 380mm HE Barrage" : "./icons/Orbital Cannons/Orbital 380mm HE Barrage.svg",
+    "Orbital 120mm HE Barrage" : "./icons/Orbital Cannons/Orbital 120MM HE Barrage.svg",
+    "Orbital 380mm HE Barrage" : "./icons/Orbital Cannons/Orbital 380MM HE Barrage.svg",
     "Orbital Walking Barrage" : "./icons/Orbital Cannons/Orbital Walking Barrage.svg",
     "Orbital Laser" : "./icons/Orbital Cannons/Orbital Laser.svg",
     "Orbital Railcannon Strike" : "./icons/Orbital Cannons/Orbital Railcannon Strike.svg",
@@ -60,16 +61,16 @@ export const Eagle_SVG = {
     "Eagle Cluster Bomb" : "./icons/Hangar/Eagle Cluster Bomb.svg", 
     "Eagle Napalm Airstrike" : "./icons/Hangar/Eagle Napalm Airstrike.svg",
     "Eagle Smoke Strike" : "./icons/Hangar/Eagle Smoke Strike.svg",
-    "Eagle 110mm Rocket Pods" : "./icons/Hangar/Eagle Smoke Strike.svg",
-    "Eagle 500kg Bomb" : "./icons/Hangar/Eagle 500kg Bomb.svg",
+    "Eagle 110mm Rocket Pods" : "./icons/Hangar/Eagle 110MM Rocket Pods.svg",
+    "Eagle 500kg Bomb" : "./icons/Hangar/Eagle 500KG Bomb.svg",
 };
 
 
 export const Orbital_SVG = {
     "Orbital Precision Strike" : "./icons/Bridge/Orbital Precision Strike.svg",
     "Orbital Airburst Strike" : "./icons/Orbital Cannons/Orbital Airburst Strike.svg",
-    "Orbital 120mm HE Barrage" : "./icons/Orbital Cannons/Orbital 120mm HE Barrage.svg",
-    "Orbital 380mm HE Barrage" : "./icons/Orbital Cannons/Orbital 380mm HE Barrage.svg",
+    "Orbital 120mm HE Barrage" : "./icons/Orbital Cannons/Orbital 120MM HE Barrage.svg",
+    "Orbital 380mm HE Barrage" : "./icons/Orbital Cannons/Orbital 380MM HE Barrage.svg",
     "Orbital Walking Barrage" : "./icons/Orbital Cannons/Orbital Walking Barrage.svg",
     "Orbital Laser" : "./icons/Orbital Cannons/Orbital Laser.svg",
     "Orbital Railcannon Strike" : "./icons/Orbital Cannons/Orbital Railcannon Strike.svg",
