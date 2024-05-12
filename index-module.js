@@ -36,7 +36,7 @@ function create_player_strat_table(players_div, player_id, loadout) {
 
     let player_table = document.createElement("table");
     player_table.id = "player" + player_id;
-    player_table.style = "border: 3px solid; padding: 10px; margin: auto; table-layout: fixed; width: 1400px;";
+    player_table.style = "border: 3px solid; padding: 10px; margin: auto; table-layout: fixed; width: 1200px;";
     
     let player_table_header_row = build_table_header(player_id, loadout);
     let player_table_icon_row = build_table_icons(player_id, loadout);
