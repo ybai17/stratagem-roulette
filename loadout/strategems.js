@@ -1,4 +1,4 @@
-export const Eagle = [
+const Eagle = [
     "Eagle Strafing Run",
     "Eagle Airstrike",
     "Eagle Cluster Bomb", 
@@ -8,7 +8,7 @@ export const Eagle = [
     "Eagle 500kg Bomb",
 ];
 
-export const Orbital = [
+const Orbital = [
     "Orbital Precision Strike",
     "Orbital Airburst Strike",
     "Orbital 120mm HE Barrage",
@@ -22,7 +22,7 @@ export const Orbital = [
     "Orbital Smoke Strike",
 ];
 
-export const Sentries = [
+const Sentries = [
     "Tesla Tower",
     "Mortar Sentry",
     "EMS Mortar Sentry",
@@ -36,7 +36,7 @@ export const Sentries = [
     "Rocket Sentry",
 ];
 
-export const Weapons = [
+const Weapons = [
     "Autocannon",
     "Airburst Rocket Launcher",
     "Expendable Anti-Tank",
@@ -55,7 +55,7 @@ export const Weapons = [
     "Patriot Exosuit",
 ];
 
-export const Backpacks = [
+const Backpacks = [
     "\"Guard Dog\" Rover",
     "\"Guard Dog\"",
     "Jump Pack",
@@ -64,7 +64,7 @@ export const Backpacks = [
     "Ballistic Shield Backpack",
 ];
 
-export const debug_Weapons = [
+const debug_Weapons = [
     "Autocannon",
 ];
 

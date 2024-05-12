@@ -1,22 +1,15 @@
-import * as strategems from "./strategems.js";
+import * as strategems from "./loadout/strategems.js";
+import { Difficulties } from "./loadout/difficulties.js";
+import { Grenades } from "./loadout/grenades.js";
+import { Primary_Weapons } from "./loadout/primaries.js";
+import { Secondary_Weapons } from "./loadout/secondaries.js";
+import { Boosters } from "./loadout/boosters.js";
 
 //console.log(strategems.Backpacks)
 //console.log(strategems.Eagle)
 
-function pickRandomFromCategory(list) {
-
-    //console.log('list is array? ' + Array.isArray(list));
-
-    //if (!Array.isArray(list)) {
-    //    console.log(list)
-    //}
-
-    let index = (Math.random() * list.length) << 0;
-
-    return list[index];
-}
-
 //function that picks a set of 4 strategems for a player
+//todo: add ability to adjust settings/parameters
 export function pickStrategemSet() {
     let output = [];
 
@@ -39,16 +32,16 @@ export function pickStrategemSet() {
         }
 
         //also forbid having 2 backpack-type strats
-        if (has_backpack_type && (strat_type_key == 4 || strategems.weapons_with_backpacks.includes(random_strat))) {
-            console.log("Already have backpack or autocannon, retrying");
-            continue;
-        }
+        //if (has_backpack_type && (strat_type_key == 4 || strategems.weapons_with_backpacks.includes(random_strat))) {
+        //    console.log("Already have backpack or autocannon, retrying");
+        //    continue;
+        //}
 
         //forbid having 2 weapon-type strats
-        if (has_weapon_type && strat_type_key == 3) {
-            console.log("Already has weapon, retrying");
-            continue;
-        }
+        //if (has_weapon_type && strat_type_key == 3) {
+        //    console.log("Already has weapon, retrying");
+        //    continue;
+        //}
 
         output.push(random_strat);
 
@@ -68,12 +61,50 @@ export function pickStrategemSet() {
         strat_count++;
     }
 
-    return output
+    return output;
+};
+
+export function pickDifficulty() {
+    return pickRandomFromCategory(Difficulties);
 }
 
+export function pickGrenade() {
+    return pickRandomFromCategory(Grenades);
+}
+
+export function pickPrimary() {
+    return pickRandomFromCategory(pickRandomFromCategory(Primary_Weapons));
+}
+
+export function pickSecondary() {
+    return pickRandomFromCategory(Secondary_Weapons);
+}
+
+export function pickBooster() {
+    return pickRandomFromCategory(Boosters);
+}
+
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+
+//utility/helper functions
 function getRandomIntInclusive(min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
     // The maximum is inclusive and the minimum is inclusive
+}
+
+function pickRandomFromCategory(list) {
+
+    //console.log('list is array? ' + Array.isArray(list));
+
+    //if (!Array.isArray(list)) {
+    //    console.log(list)
+    //}
+
+    let index = (Math.random() * list.length) << 0;
+
+    return list[index];
 }

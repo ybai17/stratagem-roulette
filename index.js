@@ -1,4 +1,4 @@
-import * as index_module from './index-module.js';
+import * as index_module from "./index-module.js";
 
 console.log("#### first direct function call inside index.js");
 
