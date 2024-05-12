@@ -69,7 +69,7 @@ function build_table_header(player_id, loadout) {
 
     //primary weapon
     let player_primary_header = document.createElement("th");
-    player_primary_header.style = "border: 1 px solid; padding: 10px; width: 50 px;";
+    player_primary_header.style = "border: 1 px solid; padding: 10px; width: 50 px; padding-left: 30px;";
 
     let player_primary_weapon = loadout.primary_weapon;
     player_primary_header.innerHTML = player_primary_weapon;
@@ -97,6 +97,7 @@ function build_table_header(player_id, loadout) {
     output.appendChild(player_grenade_header);
 
     //booster
+    /*
     let player_booster_header = document.createElement("th");
     player_booster_header.style = "border: 1 px solid; padding: 10px; width: 50 px;";
 
@@ -104,6 +105,7 @@ function build_table_header(player_id, loadout) {
     player_booster_header.innerHTML = player_booster;
 
     output.appendChild(player_booster_header);
+    */
 
     return output;
 }
@@ -128,7 +130,7 @@ function build_table_icons(player_id, loadout) {
 
     //create icon for the primary weapon
     let icon_primary_td = document.createElement("td");
-    icon_primary_td.style = "text-align: center;";
+    icon_primary_td.style = "text-align: center; padding-left: 30px;";
 
     let icon_primary = document.createElement("img");
     icon_primary.width = "200";
@@ -172,6 +174,7 @@ function build_table_icons(player_id, loadout) {
 
 
     //create icon for booster
+    /*
     let icon_booster_td = document.createElement("td");
     icon_booster_td.style = "text-align: center;";
 
@@ -183,6 +186,7 @@ function build_table_icons(player_id, loadout) {
 
     icon_booster_td.appendChild(icon_booster);
     output.appendChild(icon_booster_td);
+    */
 
     return output;
 }
