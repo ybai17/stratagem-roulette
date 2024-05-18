@@ -3,7 +3,7 @@ import { SVG_All } from "./icon-maps/strategem-icon-maps.js";
 import { Primary_Icons } from "./icon-maps/primary-icon-maps.js";
 import { Secondary_Icons } from "./icon-maps/secondary-icon-maps.js";
 import { Grenade_Icons } from "./icon-maps/greande-icon-maps.js";
-import { Booster_Icons } from "./icon-maps/booster-icon-maps.js";
+//import { Booster_Icons } from "./icon-maps/booster-icon-maps.js";
 
 let total_player_number = 4;
 let table_cell_width = "100";
@@ -70,6 +70,7 @@ function build_table_header(player_id, loadout) {
     //primary weapon
     let player_primary_header = document.createElement("th");
     player_primary_header.style = "border: 1 px solid; padding: 10px; width: 50 px; padding-left: 30px;";
+    player_primary_header.setAttribute("id", player_id + "_primary_header");
 
     let player_primary_weapon = loadout.primary_weapon;
     player_primary_header.innerHTML = player_primary_weapon;
@@ -80,6 +81,7 @@ function build_table_header(player_id, loadout) {
     //secondary weapon
     let player_secondary_header = document.createElement("th");
     player_secondary_header.style = "border: 1 px solid; padding: 10px; width: 50 px;";
+    player_secondary_header.setAttribute("id", player_id + "_secondary_header");
 
     let player_secondary_weapon = loadout.secondary_weapon;
     player_secondary_header.innerHTML = player_secondary_weapon;
@@ -90,6 +92,7 @@ function build_table_header(player_id, loadout) {
     //grenade
     let player_grenade_header = document.createElement("th");
     player_grenade_header.style = "border: 1 px solid; padding: 10px; width: 50 px;";
+    player_grenade_header.setAttribute("id", player_id + "_grenade_header");
 
     let player_grenade = loadout.grenade;
     player_grenade_header.innerHTML = player_grenade;
@@ -131,8 +134,15 @@ function build_table_icons(player_id, loadout) {
     //create icon for the primary weapon
     let icon_primary_td = document.createElement("td");
     icon_primary_td.style = "text-align: center; padding-left: 30px;";
+    icon_primary_td.setAttribute("id", player_id + "_primary_td");
 
     let icon_primary = document.createElement("img");
+    icon_primary.setAttribute("class", "can-reroll");
+
+    icon_primary.addEventListener("click", () => {
+        alert("You clicked: " + icon_primary_td.id);
+    });
+
     icon_primary.width = "200";
     icon_primary.height = "100";
 
@@ -146,8 +156,15 @@ function build_table_icons(player_id, loadout) {
     //create icon for the secondary weapon
     let icon_secondary_td = document.createElement("td");
     icon_secondary_td.style = "text-align: center;";
+    icon_secondary_td.setAttribute("id", player_id + "_secondary_td");
 
     let icon_secondary = document.createElement("img");
+    icon_secondary.setAttribute("class", "can-reroll");
+
+    icon_secondary_td.addEventListener("click", () => {
+        alert("You clicked: " + icon_secondary_td.id);
+    });
+
     icon_secondary.width = "150";
     icon_secondary.height = "100";
 
@@ -161,8 +178,15 @@ function build_table_icons(player_id, loadout) {
     //create icon for grenade
     let icon_grenade_td = document.createElement("td");
     icon_grenade_td.style = "text-align: center;";
+    icon_grenade_td.setAttribute("id", player_id + "_grenade_td");
 
     let icon_grenade = document.createElement("img");
+    icon_grenade.setAttribute("class", "can-reroll");
+
+    icon_grenade.addEventListener("click", () => {
+        alert("You clicked: " + icon_grenade_td.id);
+    });
+
     icon_grenade.width = "100";
     icon_grenade.height = "100";
 
@@ -191,4 +215,20 @@ function build_table_icons(player_id, loadout) {
     return output;
 }
 
+//--------------------------------------
+//helper functions for building the elements for the primary weapon, secondary weapon, and grenade, respectively
+//--------------------------------------
+function buildPrimaryElements() {
+
+}
+
+function buildSecondaryElements() {
+
+}
+
+function buildGrenadeElements() {
+    
+}
+
+//assign the main function for loading the interface to the reroll button
 document.getElementById("reroll").addEventListener("click", load_strats);

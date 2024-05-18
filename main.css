@@ -30,4 +30,16 @@ body {
     color: white;
     box-shadow: 0 5px rgb(77, 77, 77);
     transform: translateY(4px);
-  }
+}
+
+.can-reroll {
+    transition-duration: 0.15s;
+}
+
+.can-reroll:hover {
+    background-color: goldenrod;
+}
+
+.can-reroll:active {
+    background-color: rgb(168, 130, 35);
+}
