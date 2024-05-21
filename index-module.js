@@ -3,7 +3,7 @@ import { SVG_All } from "./icon-maps/strategem-icon-maps.js";
 import { Primary_Icons } from "./icon-maps/primary-icon-maps.js";
 import { Secondary_Icons } from "./icon-maps/secondary-icon-maps.js";
 import { Grenade_Icons } from "./icon-maps/greande-icon-maps.js";
-//import { Booster_Icons } from "./icon-maps/booster-icon-maps.js";
+import { Booster_Icons } from "./icon-maps/booster-icon-maps.js";
 
 let total_player_number = 4;
 let table_cell_width = "100";
@@ -14,6 +14,9 @@ export function load_strats() {
 
     document.getElementById("players").replaceChildren();
 
+    //pick boosters separately
+    let boosters = roulette.pickBoosters();
+
     let players_div = document.getElementById("players");
 
         for (let i = 0; i < total_player_number; i++) {
@@ -23,7 +26,7 @@ export function load_strats() {
                 primary_weapon: roulette.pickPrimary(),
                 secondary_weapon: roulette.pickSecondary(),
                 grenade: roulette.pickGrenade(),
-                booster: roulette.pickBooster(),
+                booster: boosters[i],
             };
 
             console.log("-----------------------------------------------------------------");
@@ -36,7 +39,7 @@ function create_player_strat_table(players_div, player_id, loadout) {
 
     let player_table = document.createElement("table");
     player_table.id = "player_" + player_id;
-    player_table.style = "border: 3px solid; padding: 10px; margin: auto; table-layout: fixed; width: 1200px;";
+    player_table.style = "border: 3px solid; padding: 10px; margin: auto; table-layout: fixed; width: 1300px;";
     
     let player_table_header_row = build_table_header(player_id, loadout);
     let player_table_icon_row = build_table_icons(player_id, loadout);
@@ -49,6 +52,7 @@ function create_player_strat_table(players_div, player_id, loadout) {
     buildPrimaryElements(player_id, loadout.primary_weapon);
     buildSecondaryElements(player_id, loadout.secondary_weapon);
     buildGrenadeElements(player_id, loadout.grenade);
+    buildBoosterElements(player_id, loadout.booster);
 
     players_div.appendChild(document.createElement("br"));
 }
@@ -73,35 +77,30 @@ function build_table_header(player_id, loadout) {
 
     //primary weapon th
     let player_primary_header = document.createElement("th");
-    player_primary_header.style = "border: 1 px solid; padding: 10px; width: 50 px; padding-left: 30px;";
+    player_primary_header.style = "border: 1 px solid; padding: 10px; width: 50 px; padding-left: 40px;";
     player_primary_header.setAttribute("id", player_id + "_primary_header");
     output.appendChild(player_primary_header);
 
 
     //secondary weapon th
     let player_secondary_header = document.createElement("th");
-    player_secondary_header.style = "border: 1 px solid; padding: 10px; width: 50 px;";
+    player_secondary_header.style = "border: 1 px solid; padding: 10px; width: 50 px; padding-left: 70px;";
     player_secondary_header.setAttribute("id", player_id + "_secondary_header");
     output.appendChild(player_secondary_header);
 
 
     //grenade th
     let player_grenade_header = document.createElement("th");
-    player_grenade_header.style = "border: 1 px solid; padding: 10px; width: 50 px;";
+    player_grenade_header.style = "border: 1 px solid; width: 50 px;";
     player_grenade_header.setAttribute("id", player_id + "_grenade_header");
     output.appendChild(player_grenade_header);
 
 
-    //booster
-    /*
+    //booster th
     let player_booster_header = document.createElement("th");
-    player_booster_header.style = "border: 1 px solid; padding: 10px; width: 50 px;";
-
-    let player_booster = loadout.booster;
-    player_booster_header.innerHTML = player_booster;
-
+    player_booster_header.style = "border: 1 px solid; width: 50 px;";
+    player_booster_header.setAttribute("id", player_id + "_booster_header");
     output.appendChild(player_booster_header);
-    */
 
     return output;
 }
@@ -126,14 +125,14 @@ function build_table_icons(player_id, loadout) {
 
     //add td space for the primary weapon icon
     let icon_primary_td = document.createElement("td");
-    icon_primary_td.style = "text-align: center; padding-left: 30px;";
+    icon_primary_td.style = "text-align: center; padding-left: 20px;";
     icon_primary_td.setAttribute("id", player_id + "_primary_td");
     output.appendChild(icon_primary_td);
 
 
     //add td space for the secondary weapon icon
     let icon_secondary_td = document.createElement("td");
-    icon_secondary_td.style = "text-align: center;";
+    icon_secondary_td.style = "text-align: center; padding-left: 50px;";
     icon_secondary_td.setAttribute("id", player_id + "_secondary_td");
     output.appendChild(icon_secondary_td);
 
@@ -145,20 +144,11 @@ function build_table_icons(player_id, loadout) {
     output.appendChild(icon_grenade_td);
 
 
-    //create icon for booster
-    /*
+    //add td space for the booster icon
     let icon_booster_td = document.createElement("td");
     icon_booster_td.style = "text-align: center;";
-
-    let icon_booster = document.createElement("img");
-    icon_booster.width = "80";
-    icon_booster.height = "70";
-
-    icon_booster.src = Booster_Icons[loadout.booster];
-
-    icon_booster_td.appendChild(icon_booster);
+    icon_booster_td.setAttribute("id", player_id + "_booster_td");
     output.appendChild(icon_booster_td);
-    */
 
     return output;
 }
@@ -259,6 +249,47 @@ function buildGrenadeElements(player_id, grenade) {
 
     icon_grenade_td.replaceChildren(icon_grenade);
 
+}
+
+//takes the player id and booster, finds the header and icon elements for that respective player,
+//clears them (if already existing) and adds in the new booster name and icons
+function buildBoosterElements(player_id, booster) {
+
+    let player_booster_header = document.getElementById(player_id + "_booster_header");
+    let icon_booster_td = document.getElementById(player_id + "_booster_td");
+
+    //header element
+    player_booster_header.innerHTML = booster;
+
+    //----------------------------------------------------------------------
+
+    //icon element
+    let icon_booster = document.createElement("img");
+    icon_booster.setAttribute("class", "can-reroll-boosters");
+
+    icon_booster.addEventListener("click", () => {
+        //alert("You clicked: " + icon_booster_td.id);
+
+        let exclude_list = [];
+
+        for (let i = 0; i < 4; i++) {
+            let curr_booster_iter = document.getElementById(i + "_booster_header").innerHTML;
+            exclude_list.push(curr_booster_iter);
+        }
+
+        console.log("REROLL EXCLUDE LIST:");
+        console.log(exclude_list);
+
+        let selected_booster = roulette.rerollBooster(exclude_list);
+        buildBoosterElements(player_id, selected_booster);
+    });
+
+    icon_booster.width = "80";
+    icon_booster.height = "70";
+
+    icon_booster.src = Booster_Icons[booster];
+
+    icon_booster_td.replaceChildren(icon_booster);
 }
 
 //assign the main function for loading the interface to the reroll button

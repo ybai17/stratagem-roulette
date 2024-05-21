@@ -8,7 +8,7 @@ export const Booster_Icons = {
     "Stamina Enhancement"            : "./icons/Boosters/Stamina Enhancement.webp",
     "Muscle Enhancement"             : "./icons/Boosters/Muscle Enhancement.webp",
     "Increased Reinforcement Budget" : "./icons/Boosters/Increased Reinforcement Budget.webp",
-    "Flexible Reinforcement Budget"  : "./icons/Boosters/Hellpod Space Optimization.webp",
+    "Flexible Reinforcement Budget"  : "./icons/Boosters/Flexible Reinforcement Budget.webp",
     "Localization Confusion"         : "./icons/Boosters/Localization Confusion.webp",
     "Expert Extraction Pilot"        : "./icons/Boosters/Expert Extraction Pilot.webp",
     "Motivational Shocks"            : "./icons/Boosters/Motivational Shocks.png",

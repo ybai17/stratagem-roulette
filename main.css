@@ -43,3 +43,22 @@ body {
 .can-reroll:active {
     background-color: rgb(168, 130, 35);
 }
+
+.can-reroll-boosters {
+    transition-duration: 0.15s;
+}
+
+.can-reroll-boosters:hover {
+    background-color: rgb(163, 165, 251);
+}
+
+.can-reroll-boosters:active {
+    background-color: rgb(127, 128, 192);
+}
+
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

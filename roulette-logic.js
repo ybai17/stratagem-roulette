@@ -80,8 +80,36 @@ export function pickSecondary() {
     return pickRandomFromCategory(Secondary_Weapons);
 }
 
-export function pickBooster() {
-    return pickRandomFromCategory(Boosters);
+//this function will work slightly differently because duplicate boosters aren't allowed
+export function pickBoosters() {
+
+    let booster_list = [];
+
+    while (booster_list.length < 4) {
+
+        let try_booster = pickRandomFromCategory(Boosters);
+
+        if (booster_list.includes(try_booster)) {
+            continue;
+        }
+
+        booster_list.push(try_booster);
+    }
+
+    return booster_list;
+}
+
+//helper function for rerolling one player's booster;
+//exclude_list is a list of the other currently selected boosters, to ensure we don't pick a duplicate
+export function rerollBooster(exclude_list) {
+
+    let try_booster = pickRandomFromCategory(Boosters);
+
+    while (exclude_list.includes(try_booster)) {
+        try_booster = pickRandomFromCategory(Boosters);
+    }
+
+    return try_booster;
 }
 
 //-----------------------------------------------------------------------------------------------------
