@@ -39,7 +39,7 @@ function create_player_strat_table(players_div, player_id, loadout) {
 
     let player_table = document.createElement("table");
     player_table.id = "player_" + player_id;
-    player_table.style = "border: 3px solid; padding: 10px; margin: auto; table-layout: fixed; width: 1300px;";
+    player_table.style = "border: 3px solid; padding: 10px; margin: auto; table-layout: fixed; width: 1300px; height: 250px;";
     
     let player_table_header_row = build_table_header(player_id, loadout);
     let player_table_icon_row = build_table_icons(player_id, loadout);
@@ -272,7 +272,7 @@ function buildBoosterElements(player_id, booster) {
 
         let exclude_list = [];
 
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < total_player_number; i++) {
             let curr_booster_iter = document.getElementById(i + "_booster_header").innerHTML;
             exclude_list.push(curr_booster_iter);
         }
