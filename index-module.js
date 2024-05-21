@@ -35,7 +35,7 @@ export function load_strats() {
 function create_player_strat_table(players_div, player_id, loadout) {
 
     let player_table = document.createElement("table");
-    player_table.id = "player" + player_id;
+    player_table.id = "player_" + player_id;
     player_table.style = "border: 3px solid; padding: 10px; margin: auto; table-layout: fixed; width: 1200px;";
     
     let player_table_header_row = build_table_header(player_id, loadout);
@@ -45,6 +45,10 @@ function create_player_strat_table(players_div, player_id, loadout) {
     player_table.appendChild(player_table_icon_row);
     
     players_div.appendChild(player_table);
+
+    buildPrimaryElements(player_id, loadout.primary_weapon);
+    buildSecondaryElements(player_id, loadout.secondary_weapon);
+    buildGrenadeElements(player_id, loadout.grenade);
 
     players_div.appendChild(document.createElement("br"));
 }
@@ -67,37 +71,26 @@ function build_table_header(player_id, loadout) {
 
     //now add the other headers (primary weapon, secondary weapon, grenade, booster)
 
-    //primary weapon
+    //primary weapon th
     let player_primary_header = document.createElement("th");
     player_primary_header.style = "border: 1 px solid; padding: 10px; width: 50 px; padding-left: 30px;";
     player_primary_header.setAttribute("id", player_id + "_primary_header");
-
-    let player_primary_weapon = loadout.primary_weapon;
-    player_primary_header.innerHTML = player_primary_weapon;
-
-    console.log(player_primary_weapon);
     output.appendChild(player_primary_header);
 
-    //secondary weapon
+
+    //secondary weapon th
     let player_secondary_header = document.createElement("th");
     player_secondary_header.style = "border: 1 px solid; padding: 10px; width: 50 px;";
     player_secondary_header.setAttribute("id", player_id + "_secondary_header");
-
-    let player_secondary_weapon = loadout.secondary_weapon;
-    player_secondary_header.innerHTML = player_secondary_weapon;
-
-    console.log(player_secondary_weapon);
     output.appendChild(player_secondary_header);
 
-    //grenade
+
+    //grenade th
     let player_grenade_header = document.createElement("th");
     player_grenade_header.style = "border: 1 px solid; padding: 10px; width: 50 px;";
     player_grenade_header.setAttribute("id", player_id + "_grenade_header");
-
-    let player_grenade = loadout.grenade;
-    player_grenade_header.innerHTML = player_grenade;
-
     output.appendChild(player_grenade_header);
+
 
     //booster
     /*
@@ -131,70 +124,25 @@ function build_table_icons(player_id, loadout) {
         output.appendChild(icon_td);
     });
 
-    //create icon for the primary weapon
+    //add td space for the primary weapon icon
     let icon_primary_td = document.createElement("td");
     icon_primary_td.style = "text-align: center; padding-left: 30px;";
     icon_primary_td.setAttribute("id", player_id + "_primary_td");
-
-    let icon_primary = document.createElement("img");
-    icon_primary.setAttribute("class", "can-reroll");
-
-    icon_primary.addEventListener("click", () => {
-        alert("You clicked: " + icon_primary_td.id);
-    });
-
-    icon_primary.width = "200";
-    icon_primary.height = "100";
-
-    icon_primary.src = Primary_Icons[loadout.primary_weapon];
-
-    icon_primary_td.appendChild(icon_primary);
     output.appendChild(icon_primary_td);
 
 
-
-    //create icon for the secondary weapon
+    //add td space for the secondary weapon icon
     let icon_secondary_td = document.createElement("td");
     icon_secondary_td.style = "text-align: center;";
     icon_secondary_td.setAttribute("id", player_id + "_secondary_td");
-
-    let icon_secondary = document.createElement("img");
-    icon_secondary.setAttribute("class", "can-reroll");
-
-    icon_secondary_td.addEventListener("click", () => {
-        alert("You clicked: " + icon_secondary_td.id);
-    });
-
-    icon_secondary.width = "150";
-    icon_secondary.height = "100";
-
-    icon_secondary.src = Secondary_Icons[loadout.secondary_weapon];
-
-    icon_secondary_td.appendChild(icon_secondary);
     output.appendChild(icon_secondary_td);
 
 
-
-    //create icon for grenade
+    //add td space for the grenade icon
     let icon_grenade_td = document.createElement("td");
     icon_grenade_td.style = "text-align: center;";
     icon_grenade_td.setAttribute("id", player_id + "_grenade_td");
-
-    let icon_grenade = document.createElement("img");
-    icon_grenade.setAttribute("class", "can-reroll");
-
-    icon_grenade.addEventListener("click", () => {
-        alert("You clicked: " + icon_grenade_td.id);
-    });
-
-    icon_grenade.width = "100";
-    icon_grenade.height = "100";
-
-    icon_grenade.src = Grenade_Icons[loadout.grenade];
-
-    icon_grenade_td.appendChild(icon_grenade);
     output.appendChild(icon_grenade_td);
-
 
 
     //create icon for booster
@@ -218,16 +166,99 @@ function build_table_icons(player_id, loadout) {
 //--------------------------------------
 //helper functions for building the elements for the primary weapon, secondary weapon, and grenade, respectively
 //--------------------------------------
-function buildPrimaryElements() {
 
-}
+//takes the player id and primary weapon, finds the header and icon elements for that respective player,
+//clears them (if already existing) and adds in the new weapon name and icons
+function buildPrimaryElements(player_id, primary_weapon) {
 
-function buildSecondaryElements() {
+    console.log(primary_weapon);
 
-}
-
-function buildGrenadeElements() {
+    let player_primary_header = document.getElementById(player_id + "_primary_header");
+    let icon_primary_td = document.getElementById(player_id + "_primary_td");
     
+    //header element
+    player_primary_header.innerHTML = primary_weapon;
+
+    //----------------------------------------------------------------------
+
+    //icon element
+    let icon_primary = document.createElement("img");
+    icon_primary.setAttribute("class", "can-reroll");
+
+    icon_primary.addEventListener("click", () => {
+        //alert("You clicked: " + icon_primary_td.id);
+        buildPrimaryElements(player_id, roulette.pickPrimary());
+    });
+
+    icon_primary.width = "200";
+    icon_primary.height = "100";
+
+    icon_primary.src = Primary_Icons[primary_weapon];
+
+    icon_primary_td.replaceChildren(icon_primary);
+}
+
+//takes the player id and secondary weapon, finds the header and icon elements for that respective player,
+//clears them (if already existing) and adds in the new weapon name and icons
+function buildSecondaryElements(player_id, secondary_weapon) {
+
+    console.log(secondary_weapon);
+
+    let player_secondary_header = document.getElementById(player_id + "_secondary_header");
+    let icon_secondary_td = document.getElementById(player_id + "_secondary_td");
+
+    //header element
+    player_secondary_header.innerHTML = secondary_weapon;
+
+    //----------------------------------------------------------------------
+
+    //icon element
+    let icon_secondary = document.createElement("img");
+    icon_secondary.setAttribute("class", "can-reroll");
+
+    icon_secondary_td.addEventListener("click", () => {
+        //alert("You clicked: " + icon_secondary_td.id);
+        buildSecondaryElements(player_id, roulette.pickSecondary());
+    });
+
+    icon_secondary.width = "150";
+    icon_secondary.height = "100";
+
+    icon_secondary.src = Secondary_Icons[secondary_weapon];
+
+    icon_secondary_td.replaceChildren(icon_secondary);
+
+}
+
+//takes the player id and grenade, finds the header and icon elements for that respective player,
+//clears them (if already existing) and adds in the new grenade name and icons
+function buildGrenadeElements(player_id, grenade) {
+    
+    //clear the header and icon elements first
+    let player_grenade_header = document.getElementById(player_id + "_grenade_header");
+    let icon_grenade_td = document.getElementById(player_id + "_grenade_td");
+
+    //header element
+    player_grenade_header.innerHTML = grenade;
+
+    //----------------------------------------------------------------------
+
+    //icon element
+    let icon_grenade = document.createElement("img");
+    icon_grenade.setAttribute("class", "can-reroll");
+
+    icon_grenade.addEventListener("click", () => {
+        //alert("You clicked: " + icon_grenade_td.id);
+        buildGrenadeElements(player_id, roulette.pickGrenade());
+    });
+
+    icon_grenade.width = "100";
+    icon_grenade.height = "100";
+
+    icon_grenade.src = Grenade_Icons[grenade];
+
+    icon_grenade_td.replaceChildren(icon_grenade);
+
 }
 
 //assign the main function for loading the interface to the reroll button
