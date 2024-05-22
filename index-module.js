@@ -1,5 +1,5 @@
 import * as roulette from "./roulette-logic.js";
-import { SVG_All } from "./icon-maps/strategem-icon-maps.js";
+import { SVG_All } from "./icon-maps/stratagem-icon-maps.js";
 import { Primary_Icons } from "./icon-maps/primary-icon-maps.js";
 import { Secondary_Icons } from "./icon-maps/secondary-icon-maps.js";
 import { Grenade_Icons } from "./icon-maps/greande-icon-maps.js";
@@ -22,7 +22,7 @@ export function load_strats() {
         for (let i = 0; i < total_player_number; i++) {
 
             let loadout = {
-                strategems: roulette.pickStrategemSet(),
+                stratagems: roulette.pickstratagemSet(),
                 primary_weapon: roulette.pickPrimary(),
                 secondary_weapon: roulette.pickSecondary(),
                 grenade: roulette.pickGrenade(),
@@ -39,7 +39,7 @@ function create_player_strat_table(players_div, player_id, loadout) {
 
     let player_table = document.createElement("table");
     player_table.id = "player_" + player_id;
-    player_table.style = "border: 3px solid; padding: 10px; margin: auto; table-layout: fixed; width: 1300px; height: 250px;";
+    player_table.setAttribute("class", "player-table");
     
     let player_table_header_row = build_table_header(player_id, loadout);
     let player_table_icon_row = build_table_icons(player_id, loadout);
@@ -60,46 +60,47 @@ function create_player_strat_table(players_div, player_id, loadout) {
 function build_table_header(player_id, loadout) {
     let output = document.createElement("tr");
     output.setAttribute("id", "player_" + player_id + "_header_row");
-    output.style = "text-align: center; border: 1 px solid;";
+    output.setAttribute("class", "player-header-row");
 
 
-    //add the strategem headers
+    //add the stratagem headers
     for (let i = 0; i < 4; i++) {
-        let player_table_headers_single = document.createElement("th");
-        player_table_headers_single.style = "padding: 20px; width: " + table_cell_width + "px;";
+        let player_stratagem_header_single = document.createElement("th");
+        player_stratagem_header_single.setAttribute("class", "player-stratagem-headers");
+        player_stratagem_header_single.style = "padding: 20px; width: " + table_cell_width + "px;";
 
-        player_table_headers_single.innerHTML = loadout.strategems[i];
+        player_stratagem_header_single.innerHTML = loadout.stratagems[i];
 
-       output.appendChild(player_table_headers_single);
+       output.appendChild(player_stratagem_header_single);
     }
 
     //now add the other headers (primary weapon, secondary weapon, grenade, booster)
 
     //primary weapon th
     let player_primary_header = document.createElement("th");
-    player_primary_header.style = "border: 1 px solid; padding: 10px; width: 50 px; padding-left: 40px;";
     player_primary_header.setAttribute("id", player_id + "_primary_header");
+    player_primary_header.setAttribute("class", "player-primary-headers");
     output.appendChild(player_primary_header);
 
 
     //secondary weapon th
     let player_secondary_header = document.createElement("th");
-    player_secondary_header.style = "border: 1 px solid; padding: 10px; width: 50 px; padding-left: 70px;";
     player_secondary_header.setAttribute("id", player_id + "_secondary_header");
+    player_secondary_header.setAttribute("class", "player-secondary-headers");
     output.appendChild(player_secondary_header);
 
 
     //grenade th
     let player_grenade_header = document.createElement("th");
-    player_grenade_header.style = "border: 1 px solid; width: 50 px;";
     player_grenade_header.setAttribute("id", player_id + "_grenade_header");
+    player_grenade_header.setAttribute("class", "player-grenade-headers");
     output.appendChild(player_grenade_header);
 
 
     //booster th
     let player_booster_header = document.createElement("th");
-    player_booster_header.style = "border: 1 px solid; width: 50 px;";
     player_booster_header.setAttribute("id", player_id + "_booster_header");
+    player_booster_header.setAttribute("class", "player-booster-headers");
     output.appendChild(player_booster_header);
 
     return output;
@@ -109,17 +110,17 @@ function build_table_icons(player_id, loadout) {
     let output = document.createElement("tr");
     output.setAttribute("id", "player_" + player_id + "_header_row");
 
-    loadout.strategems.forEach(strat => {
+    loadout.stratagems.forEach(strat => {
         let icon_td = document.createElement("td");
         icon_td.style = "text-align: center;";
 
-        let strategem_svg = document.createElement("img");
-        strategem_svg.width = table_cell_width;
-        strategem_svg.height = table_cell_width;
+        let stratagem_svg = document.createElement("img");
+        stratagem_svg.width = table_cell_width;
+        stratagem_svg.height = table_cell_width;
 
-        strategem_svg.src = SVG_All[strat];
+        stratagem_svg.src = SVG_All[strat];
 
-        icon_td.appendChild(strategem_svg);
+        icon_td.appendChild(stratagem_svg);
         output.appendChild(icon_td);
     });
 
@@ -127,6 +128,7 @@ function build_table_icons(player_id, loadout) {
     let icon_primary_td = document.createElement("td");
     icon_primary_td.style = "text-align: center; padding-left: 20px;";
     icon_primary_td.setAttribute("id", player_id + "_primary_td");
+    icon_primary_td.setAttribute("class", "primary-icons");
     output.appendChild(icon_primary_td);
 
 
@@ -134,6 +136,7 @@ function build_table_icons(player_id, loadout) {
     let icon_secondary_td = document.createElement("td");
     icon_secondary_td.style = "text-align: center; padding-left: 50px;";
     icon_secondary_td.setAttribute("id", player_id + "_secondary_td");
+    icon_secondary_td.setAttribute("class", "secondary-icons");
     output.appendChild(icon_secondary_td);
 
 
@@ -141,6 +144,7 @@ function build_table_icons(player_id, loadout) {
     let icon_grenade_td = document.createElement("td");
     icon_grenade_td.style = "text-align: center;";
     icon_grenade_td.setAttribute("id", player_id + "_grenade_td");
+    icon_secondary_td.setAttribute("class", "grenade-icons");
     output.appendChild(icon_grenade_td);
 
 
@@ -148,6 +152,7 @@ function build_table_icons(player_id, loadout) {
     let icon_booster_td = document.createElement("td");
     icon_booster_td.style = "text-align: center;";
     icon_booster_td.setAttribute("id", player_id + "_booster_td");
+    icon_booster_td.setAttribute("class", "booster-icons");
     output.appendChild(icon_booster_td);
 
     return output;

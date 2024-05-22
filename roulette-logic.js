@@ -1,16 +1,16 @@
-import * as strategems from "./loadout/strategems.js";
+import * as stratagems from "./loadout/stratagems.js";
 import { Difficulties } from "./loadout/difficulties.js";
 import { Grenades } from "./loadout/grenades.js";
 import { Primary_Weapons } from "./loadout/primaries.js";
 import { Secondary_Weapons } from "./loadout/secondaries.js";
 import { Boosters } from "./loadout/boosters.js";
 
-//console.log(strategems.Backpacks)
-//console.log(strategems.Eagle)
+//console.log(stratagems.Backpacks)
+//console.log(stratagems.Eagle)
 
-//function that picks a set of 4 strategems for a player
+//function that picks a set of 4 stratagems for a player
 //todo: add ability to adjust settings/parameters
-export function pickStrategemSet() {
+export function pickstratagemSet() {
     let output = [];
 
     let has_backpack_type = false;
@@ -24,7 +24,7 @@ export function pickStrategemSet() {
 
         console.log("Chose strat key: " + strat_type_key);
 
-        let random_strat = pickRandomFromCategory(strategems.Strategem_Categories[strat_type_key]);
+        let random_strat = pickRandomFromCategory(stratagems.Stratagem_Categories[strat_type_key]);
 
         //check if we've already picked this one
         if (output.includes(random_strat)) {
@@ -32,7 +32,7 @@ export function pickStrategemSet() {
         }
 
         //also forbid having 2 backpack-type strats
-        //if (has_backpack_type && (strat_type_key == 4 || strategems.weapons_with_backpacks.includes(random_strat))) {
+        //if (has_backpack_type && (strat_type_key == 4 || stratagems.weapons_with_backpacks.includes(random_strat))) {
         //    console.log("Already have backpack or autocannon, retrying");
         //    continue;
         //}
@@ -54,7 +54,7 @@ export function pickStrategemSet() {
         }
 
         //also need to handle special case of the autocannon
-        if (strategems.weapons_with_backpacks.includes(random_strat)) {
+        if (stratagems.weapons_with_backpacks.includes(random_strat)) {
             has_backpack_type = true;
         }
 

@@ -68,7 +68,7 @@ const debug_Weapons = [
     "Autocannon",
 ];
 
-export const Strategem_Categories = {
+export const Stratagem_Categories = {
     0: Eagle,
     1: Orbital,
     2: Sentries,
