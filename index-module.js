@@ -67,7 +67,6 @@ function build_table_header(player_id, loadout) {
     for (let i = 0; i < 4; i++) {
         let player_stratagem_header_single = document.createElement("th");
         player_stratagem_header_single.setAttribute("class", "player-stratagem-headers");
-        player_stratagem_header_single.style = "padding: 20px; width: " + table_cell_width + "px;";
 
         player_stratagem_header_single.innerHTML = loadout.stratagems[i];
 
@@ -112,11 +111,10 @@ function build_table_icons(player_id, loadout) {
 
     loadout.stratagems.forEach(strat => {
         let icon_td = document.createElement("td");
-        icon_td.style = "text-align: center;";
+        icon_td.setAttribute("class", "stratagem-icons");
 
         let stratagem_svg = document.createElement("img");
-        stratagem_svg.width = table_cell_width;
-        stratagem_svg.height = table_cell_width;
+        stratagem_svg.setAttribute("class", "stratagem-icons-img");
 
         stratagem_svg.src = SVG_All[strat];
 
@@ -126,7 +124,6 @@ function build_table_icons(player_id, loadout) {
 
     //add td space for the primary weapon icon
     let icon_primary_td = document.createElement("td");
-    icon_primary_td.style = "text-align: center; padding-left: 20px;";
     icon_primary_td.setAttribute("id", player_id + "_primary_td");
     icon_primary_td.setAttribute("class", "primary-icons");
     output.appendChild(icon_primary_td);
@@ -134,7 +131,6 @@ function build_table_icons(player_id, loadout) {
 
     //add td space for the secondary weapon icon
     let icon_secondary_td = document.createElement("td");
-    icon_secondary_td.style = "text-align: center; padding-left: 50px;";
     icon_secondary_td.setAttribute("id", player_id + "_secondary_td");
     icon_secondary_td.setAttribute("class", "secondary-icons");
     output.appendChild(icon_secondary_td);
@@ -142,15 +138,13 @@ function build_table_icons(player_id, loadout) {
 
     //add td space for the grenade icon
     let icon_grenade_td = document.createElement("td");
-    icon_grenade_td.style = "text-align: center;";
     icon_grenade_td.setAttribute("id", player_id + "_grenade_td");
-    icon_secondary_td.setAttribute("class", "grenade-icons");
+    icon_grenade_td.setAttribute("class", "grenade-icons");
     output.appendChild(icon_grenade_td);
 
 
     //add td space for the booster icon
     let icon_booster_td = document.createElement("td");
-    icon_booster_td.style = "text-align: center;";
     icon_booster_td.setAttribute("id", player_id + "_booster_td");
     icon_booster_td.setAttribute("class", "booster-icons");
     output.appendChild(icon_booster_td);
@@ -166,7 +160,7 @@ function build_table_icons(player_id, loadout) {
 //clears them (if already existing) and adds in the new weapon name and icons
 function buildPrimaryElements(player_id, primary_weapon) {
 
-    console.log(primary_weapon);
+    //console.log(primary_weapon);
 
     let player_primary_header = document.getElementById(player_id + "_primary_header");
     let icon_primary_td = document.getElementById(player_id + "_primary_td");
@@ -197,7 +191,7 @@ function buildPrimaryElements(player_id, primary_weapon) {
 //clears them (if already existing) and adds in the new weapon name and icons
 function buildSecondaryElements(player_id, secondary_weapon) {
 
-    console.log(secondary_weapon);
+    //console.log(secondary_weapon);
 
     let player_secondary_header = document.getElementById(player_id + "_secondary_header");
     let icon_secondary_td = document.getElementById(player_id + "_secondary_td");

@@ -1,3 +1,7 @@
+:root {
+    --cell-width: 100px;
+}
+
 body {
     font-family: "Monospace", Monaco, monospace;
     background-color: dimgray;
@@ -18,6 +22,11 @@ body {
 .player-header-row {
     text-align: center;
     border: 1px solid;
+}
+
+.player-stratagem-headers {
+    padding: 20px;
+    width: var(--cell-width, 100px);
 }
 
 .player-primary-headers {
@@ -44,8 +53,32 @@ body {
     /* width: 50px; */
 }
 
+.stratagem-icons {
+    text-align: center;
+}
 
+.stratagem-icons-img {
+    width: var(--cell-width);
+    height: var(--cell-width);
+}
 
+.primary-icons {
+    text-align: center;
+    padding-left: 20px;
+}
+
+.secondary-icons {
+    text-align: center;
+    padding-left: 40px;
+}
+
+.grenade-icons {
+    text-align: center;
+}
+
+.booster-icons {
+    text-align: center;
+}
 
 img {
     display: block;
