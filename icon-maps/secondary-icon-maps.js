@@ -4,4 +4,5 @@ export const Secondary_Icons = {
     "Senator"        : "./icons/Secondary Weapons/Senator.webp",
     "Dagger"         : "./icons/Secondary Weapons/Dagger.webp",
     "Grenade Pistol" : "./icons/Secondary Weapons/Grenade Pistol.webp",
+    "Verdict"        : "./icons/Secondary Weapons/Verdict.png",
 };

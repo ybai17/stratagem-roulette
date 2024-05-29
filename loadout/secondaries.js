@@ -4,4 +4,5 @@ export const Secondary_Weapons = [
     "Senator",
     "Dagger",
     "Grenade Pistol",
+    "Verdict",
 ];

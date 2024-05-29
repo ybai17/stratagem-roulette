@@ -20,4 +20,6 @@ export const Primary_Icons = {
     "Dominator"                : "./icons/Primary Weapons/Dominator.webp",
     "Eruptor"                  : "./icons/Primary Weapons/Eruptor.webp",
     "Exploding Crossbow"       : "./icons/Primary Weapons/Exploding Crossbow.webp",
+    "Pummeller"                : "./icons/Primary Weapons/Pummeller.png",
+    "Tenderizer"               : "./icons/Primary Weapons/Tenderizer.png",
 };

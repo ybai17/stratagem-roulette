@@ -3,6 +3,7 @@ export const Assault_Rifles = [
     "Liberator Concussive",
     "Liberator Penetrator",
     "Adjudicator",
+    "Tenderizer",
 ];
 
 export const Marksman_Rifles = [
@@ -13,6 +14,7 @@ export const Marksman_Rifles = [
 export const SMGs = [
     "Knight",
     "Defender",
+    "Pummeller",
 ];
 
 export const Shotguns = [
