@@ -191,11 +191,9 @@ function buildPrimaryElements(player_id, primary_weapon) {
 //clears them (if already existing) and adds in the new weapon name and icons
 function buildSecondaryElements(player_id, secondary_weapon) {
 
-    //console.log(secondary_weapon);
-
     let player_secondary_header = document.getElementById(player_id + "_secondary_header");
     let icon_secondary_td = document.getElementById(player_id + "_secondary_td");
-
+    
     //header element
     player_secondary_header.innerHTML = secondary_weapon;
 
@@ -205,8 +203,8 @@ function buildSecondaryElements(player_id, secondary_weapon) {
     let icon_secondary = document.createElement("img");
     icon_secondary.setAttribute("class", "can-reroll");
 
-    icon_secondary_td.addEventListener("click", () => {
-        //alert("You clicked: " + icon_secondary_td.id);
+    icon_secondary.addEventListener("click", () => {
+        //alert("You clicked: " + icon_primary_td.id);
         buildSecondaryElements(player_id, roulette.pickSecondary());
     });
 
