@@ -47,6 +47,7 @@ export const SVG_All = {
     "Quasar Cannon"             : "./icons/Engineering Bay/Quasar Cannon.svg",
     "Heavy Machine Gun"         : "./icons/Patriotic Administration Center/Heavy Machine Gun.svg",
     "Patriot Exosuit"           : "./icons/Robotics Workshop/Patriot Exosuit.svg",
+    "Emancipator Exosuit"       : "./icons/Robotics Workshop/Emancipator Exosuit.svg",
     "\"Guard Dog\" Rover"       : "./icons/Engineering Bay/Guard Dog Rover.svg",
     "\"Guard Dog\""             : "./icons/Robotics Workshop/Guard Dog.svg",
     "Jump Pack"                 : "./icons/Hangar/Jump Pack.svg",
@@ -111,6 +112,7 @@ export const Weapons_SVG = {
     "Quasar Cannon" : "./icons/Engineering Bay/Quasar Cannon.svg",
     "Heavy Machine Gun" : "./icons/Patriotic Administration Center/Heavy Machine Gun.svg",
     "Patriot Exosuit" : "./icons/Robotics Workshop/Patriot Exosuit.svg",
+    "Emancipator Exosuit": "./icons/Robotics Workshop/Emancipator Exosuit.svg",
 };
 
 export const Backpacks_SVG = {

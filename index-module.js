@@ -204,7 +204,7 @@ function buildSecondaryElements(player_id, secondary_weapon) {
     icon_secondary.setAttribute("class", "can-reroll");
 
     icon_secondary.addEventListener("click", () => {
-        //alert("You clicked: " + icon_primary_td.id);
+        //alert("You clicked: " + icon_secondary_td.id);
         buildSecondaryElements(player_id, roulette.pickSecondary());
     });
 

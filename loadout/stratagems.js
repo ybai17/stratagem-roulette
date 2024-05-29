@@ -53,6 +53,7 @@ const Weapons = [
     "Quasar Cannon",
     "Heavy Machine Gun",
     "Patriot Exosuit",
+    "Emancipator Exosuit",
 ];
 
 const Backpacks = [
